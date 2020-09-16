@@ -1,8 +1,8 @@
 echo "Byt standardlösen (raspberry)"
-passwd
+sudo passwd pi
 
 echo "Skapa ett lösen för rootanvändaren: "
-sudo passwd
+sudo passwd root
 
 sed -i 's/NOPASSWD/PASSWD/' /etc/sudoers.d/010_pi-nopasswd
 
