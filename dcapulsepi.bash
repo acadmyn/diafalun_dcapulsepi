@@ -4,7 +4,7 @@ sudo passwd pi
 echo "Skapa ett lösen för rootanvändaren: "
 sudo passwd root
 
-sed -i 's/NOPASSWD/PASSWD/' /etc/sudoers.d/010_pi-nopasswd
+sudo sed -i 's/NOPASSWD/PASSWD/' /etc/sudoers.d/010_pi-nopasswd
 
 echo "Uppdaterar..."
 apt update -y
