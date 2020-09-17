@@ -51,8 +51,10 @@ sudo sed -i 's/SIZE=40M/SIZE=128M/' /etc/log2ram.conf
 echo "Klar. Väntar ett par sekunder..."
 sleep 5
 
-#echo "Skapar schemalagd omstart..."
+echo "Skapar schemalagd omstart...
+#sudo -s
 #crontab -l | { cat; echo "0 0	* * *	root	/sbin/shutdown -r now"; } | crontab -
+echo "0 0	* * *	root	/sbin/shutdown -r now"
 
 
 echo "Städar upp lite..."
