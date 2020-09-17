@@ -45,6 +45,7 @@ git clone https://github.com/azlux/log2ram.git
 cd log2ram
 chmod +x install.sh
 sh ./install.sh
+sudo sed -i 's/SIZE=40M/SIZE=128M/' /etc/log2ram.conf
 echo "Klar. Väntar ett par sekunder..."
 sleep 5
 
