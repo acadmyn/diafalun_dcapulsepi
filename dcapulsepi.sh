@@ -1,4 +1,6 @@
-echo "Byt standardlösen (raspberry)"
+clear
+
+echo -e "Påbörjar uppdatering och installation av följande paket:\nraspberrypi-ui-mods\nfirefox-esr\nTeamviewer\nLog2RAM\n\nByt standardlösen (raspberry): "
 sudo passwd pi
 
 echo "Skapa ett lösen för rootanvändaren: "
@@ -55,5 +57,8 @@ sleep 5
 
 echo "Städar upp lite..."
 apt autoremove -y
+clear
 
+echo "Startar om datorn om 10 sekunder..."
+sleep 10
 reboot now
