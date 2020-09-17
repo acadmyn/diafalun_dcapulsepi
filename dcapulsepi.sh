@@ -59,6 +59,11 @@ echo "Städar upp lite..."
 apt autoremove -y
 clear
 
+sudo sed -i 's/#hdmi_group=0/hdmi_group=2/' /boot/config.txt
+sudo sed -i 's/#hdmi_mode=1/hdmi_mode=85/' /boot/config.txt
+teamviewer info
+read -p "\nSkriv ner Teamviewer ID här ovanför"
+
 echo "Startar om datorn om 10 sekunder..."
 sleep 10
 reboot now
