@@ -1,6 +1,6 @@
 clear
 
-echo -e "Påbörjar uppdatering och installation av följande paket:\nraspberrypi-ui-mods\nfirefox-esr\nTeamviewer\nLog2RAM\n\nByt standardlösen (raspberry): "
+echo "Påbörjar uppdatering och installation av följande paket:\nraspberrypi-ui-mods\nfirefox-esr\nTeamviewer\nLog2RAM\n\nByt standardlösen (raspberry): "
 sudo passwd pi
 
 echo "Skapa ett lösen för rootanvändaren: "
@@ -15,20 +15,17 @@ echo "Uppdaterar..."
 apt update -y
 apt upgrade -y
 echo "Klar. Väntar ett par sekunder..."
-sleep 5
-clear
+sleep 3
 
 echo "Installerar skrivbordsmiljö..."
 apt install -y raspberrypi-ui-mods
 echo "Klar. Väntar ett par sekunder..."
-sleep 5
-clear
+sleep 3
 
 echo "Installerar Firefox..."
 apt install -y firefox-esr
 echo "Klar. Väntar ett par sekunder..."
-sleep 5
-clear
+sleep 3
 
 echo "Installerar Teamviewer..."
 cd /home/pi
@@ -52,14 +49,14 @@ echo "Klar. Väntar ett par sekunder..."
 sleep 5
 
 echo "Skapar schemalagd omstart...
-#sudo -s
+sudo -s
 #crontab -l | { cat; echo "0 0	* * *	root	/sbin/shutdown -r now"; } | crontab -
-echo "0 0	* * *	root	/sbin/shutdown -r now"
+echo "0 0 * * *	root	/sbin/shutdown -r now" >> /etc/crontab
+exit
 
 
 echo "Städar upp lite..."
 apt autoremove -y
-clear
 
 sudo sed -i 's/#hdmi_group=0/hdmi_group=2/' /boot/config.txt
 sudo sed -i 's/#hdmi_mode=1/hdmi_mode=85/' /boot/config.txt
