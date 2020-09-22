@@ -6,6 +6,9 @@ sudo passwd pi
 echo "Skapa ett lösen för rootanvändaren: "
 sudo passwd root
 
+echo "Välj ett lösenord för TeamViewer host: "
+read twpasswd
+
 sudo sed -i 's/NOPASSWD/PASSWD/' /etc/sudoers.d/010_pi-nopasswd
 
 echo "Uppdaterar..."
@@ -32,9 +35,6 @@ cd /home/pi
 wget https://download.teamviewer.com/download/linux/teamviewer-host_armhf.deb
 dpkg -i teamviewer-host_armhf.deb
 apt -f upgrade -y
-#Prompta för tw lösen
-echo "Välj ett lösenord för TeamViewer host: "
-read twpasswd
 teamviewer passwd $twpasswd
 teamviewer license accept
 echo "Klar. Väntar ett par sekunder..."
@@ -65,4 +65,4 @@ sudo sed -i 's/#hdmi_group=0/hdmi_group=2/' /boot/config.txt
 sudo sed -i 's/#hdmi_mode=1/hdmi_mode=85/' /boot/config.txt
 teamviewer info
 
-echo "Skriv ner Teamviewer ID här ovanför och skriv sen 'sudo reboot now' för att starta om datorn"
+echo "Skriv ner Teamviewer ID:t här ovanför och skriv sen 'sudo reboot now' för att starta om datorn"
