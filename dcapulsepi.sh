@@ -64,6 +64,6 @@ sudo sed -i 's/#hdmi_group=0/hdmi_group=2/' /boot/config.txt
 sudo sed -i 's/#hdmi_mode=1/hdmi_mode=85/' /boot/config.txt
 sudo teamviewer info
 
-echo "Notera Teamviewer ID:t. Tryck enter och skriv sen [sudo reboot now], utan klamrar, för att starta om datorn"
+echo "Notera Teamviewer ID:t ovan. Tryck enter och skriv sen 'sudo reboot now' för att starta om datorn"
 
 read klarenter
