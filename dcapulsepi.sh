@@ -13,33 +13,33 @@ clear
 
 sudo sed -i 's/NOPASSWD/PASSWD/' /etc/sudoers.d/010_pi-nopasswd
 
-echo "Uppdaterar..."
+echo "\nUppdaterar...\n"
 apt update -y
 apt upgrade -y
-echo "Klar. Väntar ett par sekunder..."
+echo "\nKlar. Väntar ett par sekunder...\n"
 sleep 3
 
-echo "Installerar skrivbordsmiljö..."
+echo "\nInstallerar skrivbordsmiljö...\n"
 apt install -y raspberrypi-ui-mods
-echo "Klar. Väntar ett par sekunder..."
+echo "\nKlar. Väntar ett par sekunder...\n"
 sleep 3
 
-echo "Installerar Firefox..."
+echo "\nInstallerar Firefox...\n"
 apt install -y firefox-esr
-echo "Klar. Väntar ett par sekunder..."
+echo "\nKlar. Väntar ett par sekunder...\n"
 sleep 3
 
-echo "Installerar Teamviewer..."
+echo "\nInstallerar Teamviewer...\n"
 cd /home/pi
 wget https://download.teamviewer.com/download/linux/teamviewer-host_armhf.deb
 dpkg -i teamviewer-host_armhf.deb
 apt -f upgrade -y
 teamviewer passwd $twpasswd
 teamviewer license accept
-echo "Klar. Väntar ett par sekunder..."
+echo "\nKlar. Väntar ett par sekunder...\n"
 sleep 5
 
-echo "Installerar Log2RAM..."
+echo "\nInstallerar Log2RAM...\n"
 apt install -y git
 cd /home/pi
 git clone https://github.com/azlux/log2ram.git
@@ -50,19 +50,19 @@ sudo sed -i 's/SIZE=40M/SIZE=128M/' /etc/log2ram.conf
 echo "Klar. Väntar ett par sekunder..."
 sleep 5
 
-echo "Skapar schemalagd omstart..."
+echo "\nSkapar schemalagd omstart...\n"
 sudo -s
 #crontab -l | { cat; echo "0 0	* * *	root	/sbin/shutdown -r now"; } | crontab -
-echo "0 0    * * *    root    /sbin/shutdown -r now" >> /etc/crontab
+sudo echo "0 0    * * *    root    /sbin/shutdown -r now" >> /etc/crontab
 
-echo "Städar upp lite..."
+echo "\nStädar upp lite...\n"
 apt autoremove -y
 
-sed -i 's/#hdmi_group=0/hdmi_group=2/' /boot/config.txt
-sed -i 's/#hdmi_mode=1/hdmi_mode=85/' /boot/config.txt
-teamviewer info
+sudo sed -i 's/#hdmi_group=0/hdmi_group=2/' /boot/config.txt
+sudo sed -i 's/#hdmi_mode=1/hdmi_mode=85/' /boot/config.txt
+sudo teamviewer info
 
-echo "Notera Teamviewer ID:t ovan. Tryck enter för att starta om datorn"
+echo "\nNotera Teamviewer ID:t ovan. Tryck enter för att starta om datorn\n"
 
 read klarenter
 
