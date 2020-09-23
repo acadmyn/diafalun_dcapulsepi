@@ -58,6 +58,7 @@ sudo echo "0 0    * * *    root    /sbin/shutdown -r now" >> /etc/crontab
 echo "\nStädar upp lite...\n"
 apt autoremove -y
 
+sudo sed /etc/lightdm/lightdm.conf -i -e "s/^#autologin-user=,*/autologin-user=pi/"
 sudo sed -i 's/#hdmi_group=0/hdmi_group=2/' /boot/config.txt
 sudo sed -i 's/#hdmi_mode=1/hdmi_mode=85/' /boot/config.txt
 sudo teamviewer info
