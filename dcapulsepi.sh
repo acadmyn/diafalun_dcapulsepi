@@ -54,15 +54,13 @@ echo "Skapar schemalagd omstart..."
 sudo -s
 #crontab -l | { cat; echo "0 0	* * *	root	/sbin/shutdown -r now"; } | crontab -
 echo "0 0    * * *    root    /sbin/shutdown -r now" >> /etc/crontab
-exit
-
 
 echo "Städar upp lite..."
 apt autoremove -y
 
-sudo sed -i 's/#hdmi_group=0/hdmi_group=2/' /boot/config.txt
-sudo sed -i 's/#hdmi_mode=1/hdmi_mode=85/' /boot/config.txt
-sudo teamviewer info
+sed -i 's/#hdmi_group=0/hdmi_group=2/' /boot/config.txt
+sed -i 's/#hdmi_mode=1/hdmi_mode=85/' /boot/config.txt
+teamviewer info
 
 echo "Notera Teamviewer ID:t ovan. Tryck enter för att starta om datorn"
 
