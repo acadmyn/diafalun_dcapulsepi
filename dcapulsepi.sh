@@ -9,6 +9,8 @@ sudo passwd root
 echo "Välj ett lösenord för TeamViewer host: "
 read twpasswd
 
+clear
+
 sudo sed -i 's/NOPASSWD/PASSWD/' /etc/sudoers.d/010_pi-nopasswd
 
 echo "Uppdaterar..."
