@@ -51,7 +51,7 @@ echo "Klar. Väntar ett par sekunder..."
 sleep 5
 
 echo "\nSkapar schemalagd omstart...\n"
-sudo -s
+#sudo -s
 #crontab -l | { cat; echo "0 0	* * *	root	/sbin/shutdown -r now"; } | crontab -
 sudo echo "0 0    * * *    root    /sbin/shutdown -r now" >> /etc/crontab
 
